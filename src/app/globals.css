@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/**
+ * Extracting classes
+ */
+@layer components {
+  /**
+   * Table
+   */
+  .table-style {
+    @apply divide-y divide-gray-500 border border-gray-500 bg-white;
+  }
+
+  .table-style-row {
+    @apply divide-y divide-gray-500;
+  }
+
+  .table-style-cell {
+    @apply whitespace-nowrap px-4 py-4 text-sm md:px-8 md:text-base;
+  }
+
+  .table-style-th {
+    @apply bg-gray-300 font-normal;
+  }
+
+  /**
+   * Note
+   */
+  .note-ol {
+    counter-increment: count 1;
+    @apply before:content-['※'counter(count)];
+  }
+
+  /**
+   * 改行
+   * @see https://1-notes.com/css-wrap-setting-in-japanese/
+   */
+  .break-japanese {
+    @apply break-words break-keep;
+  }
+
+  /**
+   * グラデーション
+   */
+  .bg-gold {
+    @apply bg-gradient-to-tr from-[#daaf08] from-30% via-[#fee9a0] via-50% to-[#daaf08] to-70%;
+  }
+  .bg-silver {
+    @apply bg-gradient-to-tr from-[#9e9e9e] from-30% via-[#e8e8e8] via-50% to-[#9e9e9e] to-70%;
+  }
+  .bg-bronze {
+    @apply bg-gradient-to-tr from-[#a57e65] from-30% via-[#f3cfb8] via-50% to-[#a57e65] to-70%;
+  }
+
+  /**
+   * キャプション（microCMS用）
+   */
+  .caption-black {
+    @apply mb-6 border-l-8 border-black pl-2 text-xl font-bold;
+  }
+  .caption-red {
+    @apply mb-6 border-l-8 border-red pl-2 text-xl font-bold;
+  }
+  .caption-blue {
+    @apply mb-6 border-l-8 border-blue pl-2 text-xl font-bold;
+  }
+  .caption-gray {
+    @apply mb-6 border-l-8 border-gray-500 pl-2 text-xl font-bold;
+  }
+
+  /**
+   * @tailwindcss/typography
+   * @see https://tailwindcss.com/docs/typography-plugin
+   */
+  .prose {
+    @apply prose-h1:caption-gray prose-h2:caption-gray prose-h3:caption-gray prose-h4:caption-gray prose-table:table-style prose-th:table-style-cell prose-th:table-style-th prose-td:table-style-cell prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-th:!py-0 prose-td:!py-0;
+  }
+}

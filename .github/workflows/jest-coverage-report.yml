@@ -1,0 +1,10 @@
+name: 'coverage'
+# 再利用するためにpull_request_targetではなくworkflow_callにしている
+on: workflow_call
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ArtiomTr/jest-coverage-report-action@v2

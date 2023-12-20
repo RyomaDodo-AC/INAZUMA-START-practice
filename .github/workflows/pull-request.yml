@@ -1,0 +1,16 @@
+name: Pull Request Target
+on: pull_request_target
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  # テストを実行する
+  coverage:
+    uses: ./.github/workflows/jest-coverage-report.yml
+
+  # Dependabotでパッチアップデートをマージする
+  dependabot:
+    needs: coverage
+    uses: ./.github/workflows/dependabot-auto-merge.yml
