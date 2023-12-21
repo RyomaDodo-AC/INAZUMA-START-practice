@@ -80,7 +80,7 @@
     "prettier-plugin-tailwindcss": "^0.5.9",
     "secretlint": "^8.0.0",
     "storybook": "^7.6.5",
-    "vercel": "^32.7.2"
+    "vercel": "^33.0.1"
   },
   "volta": {
     "node": "20.9.0"
